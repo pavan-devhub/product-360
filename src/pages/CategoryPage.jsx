@@ -21,6 +21,7 @@ function CategoryPage() {
       <main className="max-w-[1400px] mx-auto px-6 py-8 md:py-10">
         <PageNav
           back="/"
+          accent={category.accent}
           crumbs={[
             { label: 'Home', to: '/' },
             { label: category.name, to: null },

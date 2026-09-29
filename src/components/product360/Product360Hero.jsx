@@ -37,7 +37,7 @@ function Product360Hero(props) {
 
   return (
     <>
-      <PageNav back={back} crumbs={crumbs} />
+      <PageNav back={back} crumbs={crumbs} accent={theme.gradient} />
 
       <section
         className="relative isolate mb-8 overflow-hidden rounded-[32px] text-white shadow-lift motion-safe:animate-fade-up"
