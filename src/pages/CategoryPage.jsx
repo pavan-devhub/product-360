@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import categories from '../data/productCategories';
-import BackButton from '../components/BackButton';
+import PageNav from '../components/PageNav';
 import CategoryVisual from '../components/CategoryVisual';
 import ProductCard from '../components/ProductCard';
 import { surface } from '../utils/visuals';
@@ -19,7 +19,13 @@ function CategoryPage() {
   return (
     <div className="min-h-screen">
       <main className="max-w-[1400px] mx-auto px-6 py-8 md:py-10">
-        <BackButton to="/" />
+        <PageNav
+          back="/"
+          crumbs={[
+            { label: 'Home', to: '/' },
+            { label: category.name, to: null },
+          ]}
+        />
 
         <header
           className="relative mb-10 overflow-hidden rounded-[32px] shadow-card ring-1 ring-slate-900/[0.06] motion-safe:animate-fade-up"

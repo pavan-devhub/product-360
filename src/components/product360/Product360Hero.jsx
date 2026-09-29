@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { SEGMETA, SEGMENT_ICONS, catIcon, divIcon, p360Path } from '../../utils/product360';
 import { productIcon } from '../../utils/visuals';
-import BackButton from '../BackButton';
+import PageNav from '../PageNav';
 import Icon from '../Icon';
 
 // Title, icon, crumbs and back-link for whichever level of the tree is showing.
@@ -38,7 +37,7 @@ function Product360Hero(props) {
 
   return (
     <>
-      <BackButton to={back} />
+      <PageNav back={back} crumbs={crumbs} />
 
       <section
         className="relative isolate mb-8 overflow-hidden rounded-[32px] text-white shadow-lift motion-safe:animate-fade-up"
@@ -70,24 +69,7 @@ function Product360Hero(props) {
         )}
 
         <div className="relative p-6 md:p-9">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-1.5 gap-y-2 text-xs md:text-[13px]">
-            {crumbs.map((c, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <Icon name="ChevronRight" strokeWidth={2.5} className="h-3.5 w-3.5 shrink-0 text-white/40" />}
-                {c.to ? (
-                  <Link to={c.to} className="max-w-[220px] truncate text-white/70 transition hover:text-white">
-                    {c.label}
-                  </Link>
-                ) : (
-                  <span className="max-w-[260px] truncate rounded-full bg-white/15 px-2.5 py-0.5 font-semibold text-white ring-1 ring-white/20">
-                    {c.label}
-                  </span>
-                )}
-              </React.Fragment>
-            ))}
-          </nav>
-
-          <div className="mt-7 flex items-start gap-5">
+          <div className="flex items-start gap-5">
             <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/15 shadow-[inset_0_1px_0_rgb(255_255_255/0.35)] ring-1 ring-white/25 backdrop-blur-md">
               {emoji ? <span className="font-emoji text-4xl">{emoji}</span> : <Icon name={icon} className="h-8 w-8" />}
             </div>
